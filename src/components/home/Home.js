@@ -103,8 +103,7 @@ const Home = () => {
             <i className="bx bxl-linkedin"></i>
           </a>
           <a
-            href="./assets/My Resume.pdf"
-            download="My Resume.pdf"
+            href="https://docs.google.com/document/d/1ymr24QiIc-j3eE0Pl1CV14N-qJFhpxeI/edit?usp=drive_link&ouid=110978289447341519885&rtpof=true&sd=true"
             style={{ "--i": 11 }}
           >
             <i className="bx bxs-file-doc"></i>
