@@ -103,7 +103,7 @@ const Home = () => {
             <i className="bx bxl-linkedin"></i>
           </a>
           <a
-            href="https://drive.google.com/file/d/17gi5fKiz-rhlr1TlvJtlmwQK8a2NElzj/view?usp=drive_link"
+            href="https://docs.google.com/document/d/1Lx4qF5-JZED7l1crMXuFla_6uYX5NxpW/edit?usp=drive_link&ouid=110978289447341519885&rtpof=true&sd=true"
             style={{ "--i": 11 }}
           >
             <i className="bx bxs-file-doc"></i>
@@ -115,7 +115,7 @@ const Home = () => {
       </div>
 
       <div className="myimage">
-        <img src={Tejas} loading="lazy" />
+        <img src={Tejas} loading="lazy"  alt="My Image"/>
       </div>
     </section>
   );

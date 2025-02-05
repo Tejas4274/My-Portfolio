@@ -1,26 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const sendEmail = () => {
-    window.Email.send({
-      Host: "smtp.gmail.com",
-      Username: "tk9356964702@gmail.com",
-      Password: "password",
-      To: "tejaskamble4274@gmail.com",
-      From: document.getElementById("email").value,
-      Subject: document.getElementById("sub").value,
-      Body:
-        "Name:  " +
-        document.getElementById("name").value +
-        "<br> Email: " +
-        document.getElementById("email").value +
-        "<br> Subject: " +
-        document.getElementById("sub").value +
-        "<br> Message: " +
-        document.getElementById("message").value,
-    })
-      .then((message) => alert("Message Sent Successfully"))
-      .catch((error) => alert("Failed to send the message: " + error));
+
+  
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendEmail();
   };
 
   return (
@@ -63,7 +72,7 @@ const Footer = () => {
             <i className="bx bxl-linkedin"></i>
           </a>
           <a
-            href="https://drive.google.com/file/d/17gi5fKiz-rhlr1TlvJtlmwQK8a2NElzj/view?usp=drive_link"
+            href="https://docs.google.com/document/d/1Lx4qF5-JZED7l1crMXuFla_6uYX5NxpW/edit?usp=drive_link&ouid=110978289447341519885&rtpof=true&sd=true"
             style={{ "--i": 11 }}
           >
             <i className="bx bxs-file-doc"></i>
@@ -72,31 +81,29 @@ const Footer = () => {
       </div>
 
       <div className="contact-form">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            sendEmail();
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
             placeholder="Enter Your Name"
             required
-            id="name"
+            value={formData.name}
+            onChange={handleChange}
           />
           <input
             type="email"
             name="email"
             placeholder="Enter Your Email"
             required
-            id="email"
+            value={formData.email}
+            onChange={handleChange}
           />
           <input
             type="text"
             name="subject"
             placeholder="Enter Your Subject"
-            id="sub"
+            value={formData.subject}
+            onChange={handleChange}
           />
           <textarea
             name="message"
@@ -104,9 +111,9 @@ const Footer = () => {
             rows="10"
             placeholder="Enter Your Idea"
             required
-            id="message"
+            value={formData.message}
+            onChange={handleChange}
           ></textarea>
-
           <input type="submit" value="Submit" className="send" />
         </form>
       </div>
